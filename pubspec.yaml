@@ -31,11 +31,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  animated_splash_screen:
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  animated_splash_screen:
+  flutter_otp_text_field: ^1.1.0+2
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
 
@@ -70,6 +71,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
+    - assets/guidance/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -87,7 +89,7 @@ flutter:
     - family: DMSans
       fonts:
         - asset: assets/fonts/DMSans/DMSans-Regular.ttf
-        - asset: assets/fonts/DMSans-Italic.ttf
+        - asset: assets/fonts/DMSans/DMSans-Italic.ttf
           style: italic
         - asset: assets/fonts/DMSans/DMSans-Bold.ttf
           weight: 700

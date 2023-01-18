@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:medory/constants/colors.dart';
 import 'package:medory/routes/account_screen.dart';
 import 'package:medory/widgets/terms_and_conditions.dart';
 
@@ -12,9 +10,9 @@ class TermsAndConditionRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isChecked = false;
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9FB),
+      backgroundColor: ColorConfig.backgroundColor,
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: [
             const SizedBox(height: 51),

@@ -2,15 +2,14 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import "package:flutter/material.dart";
 import 'package:medory/main.dart';
 import 'package:medory/routes/termsandcondition.dart';
-import 'package:medory/widgets/terms_and_conditions.dart';
 
 class Splash extends StatelessWidget {
-  Splash({super.key});
+  const Splash({super.key});
 
   Future<void> waitAndPushRoute(BuildContext context) async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-      return TermsAndConditionRoute();
+      return const TermsAndConditionRoute();
     }));
   }
 

@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
           builder: (context, constraints) {
             return Center(
               child: SizedBox(
-                width: 375, //constraints.biggest.height * 9 / 16,
-                height: 667, //constraints.biggest.height,
+                width: constraints.biggest.height * 9 / 16,
+                height: constraints.biggest.height,
                 child: child,
               ),
             );
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         );
       },
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "DMSans"),
-      home: Splash(),
+      home: const Splash(),
     );
   }
 }
