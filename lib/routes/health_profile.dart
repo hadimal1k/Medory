@@ -80,7 +80,7 @@ class HealthProfile extends StatelessWidget {
                 name: "CREA PROFILO SANITARIO",
                 onPressed: () {
                   //if (formKey.currentState!.validate()) {
-                  Utils.push(context, const RadioButtonWidget());
+                  Utils.push(context, const GenderRadioFormField());
                   //}
                 },
               )
