@@ -6,6 +6,7 @@ import 'package:medory/routes/health_choice.dart';
 import 'package:medory/widgets/custom_text_field.dart';
 import 'package:medory/widgets/custom_text_form_field.dart';
 import 'package:medory/widgets/elevated_button.dart';
+import 'package:medory/widgets/radio_button.dart';
 
 class HealthProfile extends StatelessWidget {
   HealthProfile({
@@ -45,10 +46,16 @@ class HealthProfile extends StatelessWidget {
                   "Il profilo sanitario è il contenitore di tutte le tue informazioni sanitarie e la chiave per dialogare con le strutture sanitarie pubbliche e private.",
                   style: TextStyleConfig.detailText),
               const SizedBox(height: 16),
-              CustomTextField(
+              CustomTextFormField(
+                validator: ((text) {
+                  if (text?.isEmpty ?? true) {
+                    return "This field can not be empty";
+                  }
+                  return null;
+                }),
                 label: "Name",
                 onChanged: onChangeTextName,
-                initalText: "Inital Text",
+                initalText: name,
                 //controller: TextEditingController(text: "initial text"),
               ),
               const SizedBox(height: 16),
@@ -72,9 +79,9 @@ class HealthProfile extends StatelessWidget {
               ElevatedButtonWidget(
                 name: "CREA PROFILO SANITARIO",
                 onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    Utils.push(context, const HealthChoice());
-                  }
+                  //if (formKey.currentState!.validate()) {
+                  Utils.push(context, const RadioButtonWidget());
+                  //}
                 },
               )
             ],

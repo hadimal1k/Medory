@@ -8,9 +8,16 @@ import 'package:medory/routes/otpscreen.dart';
 import 'package:medory/widgets/custom_text_field.dart';
 import 'package:medory/widgets/elevated_button.dart';
 
+import '../widgets/custom_text_form_field.dart';
+
 class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
-  void onChangedCreateAccount(String? text) {}
+  AccountScreen({super.key});
+  String? number = '';
+  void onChangedCreateAccount(String? text) {
+    number = text ?? '';
+  }
+
+  final formKeyAcc = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +52,14 @@ class AccountScreen extends StatelessWidget {
             title: "Monitora il tuo stato di salute",
           ),
           const SizedBox(height: 24),
-          CustomTextField(
+          CustomTextFormField(
+            //initalText: number,
+            validator: (text) {
+              if (text?.isEmpty ?? true) {
+                return "Please give Numero di Telefono";
+              }
+              return null;
+            },
             onChanged: onChangedCreateAccount,
             label: "Numero di telefono",
           ),
@@ -54,7 +68,11 @@ class AccountScreen extends StatelessWidget {
           ),
           ElevatedButtonWidget(
               name: "CREA ACCOUNT",
-              onPressed: () => Utils.push(context, OtpScreen())),
+              onPressed: () {
+                if (formKeyAcc.currentState!.validate()) {
+                  Utils.push(context, OtpScreen());
+                }
+              }),
           const SizedBox(
             height: 32,
           ),
@@ -71,10 +89,7 @@ class AccountScreen extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const LogIn();
-                  }));
+                  Utils.push(context, const LogIn());
                 },
                 child: const Text(
                   "ACCEDI",

@@ -74,7 +74,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4),
                   side: BorderSide(
-                    color: const Color(0xFF684EF4),
+                    color:
+                        state.hasError ? Colors.red : const Color(0xFF684EF4),
                     style: _hasFocs ? BorderStyle.solid : BorderStyle.none,
                   ),
                 ),
@@ -102,7 +103,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   label: widget.label == null
                       ? null
                       : Text(widget.label!, style: TextStyleConfig.detailText),
-                  suffixIcon: Icon(Icons.error),
+                  suffixIcon: state.hasError
+                      ? const Icon(
+                          Icons.error,
+                          color: Colors.red,
+                        )
+                      : null,
                 ),
               ),
             ),
